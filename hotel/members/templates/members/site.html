@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <title>camping site</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"> </script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>  
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >  
+
+
+<style type="text/css">
+
+/*            navigation bar*/
+
+.nav{ 
+ position: fixed;
+  top: 0; 
+ left: 0; 
+ z-index: 9999;
+  width: 100%; 
+  background-color: black; 
+  }
+  .haak{
+    color: white;
+    font-family: monospace;
+
+  }
+  .paak{
+    color: white;
+    font-family: monospace;
+    font-size: 10px;
+    
+  }
+  .astyle{
+    color: white;
+  }
+  #home{
+    background-color: black;
+    height: 90;
+
+  }
+  .listyle{
+    font-size: 20px;
+    margin-top: 35px;
+    list-style-type: none;
+  }
+  .check{
+    color: white;
+    font-family: bold;
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  #maincheck:hover{
+    background-color:#55ACEE;
+  }
+  #maincheck{
+    background-color: black;
+    height: 90px;
+  }
+
+/*                                          media max width*/
+
+
+@media only screen and (max-width:990px){
+
+  .nav{ 
+ position: static;
+  top: 0; 
+ left: 0; 
+ z-index: 9999;
+  width: 100%; 
+  background-color: black; 
+  }
+}
+
+/*                              image*/
+
+
+
+  #darkimg{
+    margin-top: 7rem;
+    height: 470px ; 
+    filter: brightness(30%);
+    width: 100%;
+
+  }
+ 
+
+
+.deluxe{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  font-family: serif;
+}
+.hres{
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-family: cursive;
+  color: white;
+}
+
+
+/*                            serach box*/
+
+
+
+.srchrow{
+  position: absolute;
+  top: 70%;
+  left: 25%;
+  height: 76px;
+  max-width: 900px;
+  width: 50%;
+  background: #fff;
+  margin: 0 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.buttonsrch{
+  right: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  background-color: #4070f4;
+  cursor: pointer;
+   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.srch{
+   height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  padding: 0 155px 0 65px;
+  background-color: transparent;
+}
+#srchicon{
+   left: 20px;
+  font-size: 30px;
+  color: #707070;
+   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+@media only screen and (max-width:990px){
+
+
+  #darkimg{
+    margin-top: 0rem;
+    height: 470px ; 
+    filter: brightness(30%);
+    width: 100%;
+
+  }
+}
+@media only screen and (max-width:500px){
+
+
+  .srchrow{
+     width: 50%;
+     height: 50px;
+  }
+
+
+  .srch{
+   height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 8px;
+}
+  .buttonsrch{
+    font-size: 8px;
+      font-weight: 200;
+       padding: 8px 20px;
+  }
+
+  #srchicon{
+  font-size: 20px;
+}
+
+}
+
+
+/*                        divison 1st*/
+
+
+
+#textbox{
+  height: 500px;
+  padding: 40px 40px;
+  padding-top: 100px;
+  background-color:#55ACEE; 
+}
+
+
+#starcolor{
+  color: darkorange;
+}
+
+.textpara{
+  color: black;
+}
+.luxury{
+  font-size: 15px;
+  font-family: monospace;
+  color: black;
+}
+
+
+/*                                            imageboc*/
+#imgbox{
+  height: 500px;
+  background-color:#55ACEE;
+
+}
+#image1{
+  height:32rem;
+   width: 50%; 
+   float: left; 
+   padding: 10px;
+}
+
+#image2{
+  height:16rem;
+   width: 50%; 
+    padding: 10px;
+}
+
+#image3{
+height:32rem; 
+width: 50%; 
+padding: 10px;
+
+}
+#image4{
+height:16rem;
+ width: 50%;  
+ padding: 10px;
+  margin-top: -19rem;
+}
+
+
+
+
+
+/*                 divison 2*/
+
+
+
+.top{
+    align-content: center;
+  }
+  .para{
+  font-size: 20px;
+  font-weight: bold;
+  color: 
+#561c2b;
+}
+
+#line {
+  border: 2px solid #55ACEE;
+  padding: 50px;
+  margin: 50px;
+  margin-bottom: 0px;
+}
+#globe{
+  font-size: 30px;
+  color:#55ACEE;
+}
+.linehead{
+  font-family: sans-serif;
+  color: black;
+}
+
+
+
+
+/*                  divison 3rd*/
+
+
+.propara{
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: 15px;
+  padding-left: 20px;
+  color:black ;
+}
+
+.prohd{
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  font-family: cursives;
+  padding: 20px;
+}
+
+  .btn1{
+     border-radius: 10px;
+     font-family: cursives;
+      border: none;
+      padding: 6px;
+    width:100%;
+    background-color: #131413;
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+
+#mainimg{
+    height: 300px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.pophd{
+     display: block;
+  font-size: 2em;
+  margin-top: 1em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold
+}
+#star1{
+    font-size:25px; 
+    color: darkorange;
+
+}
+#star2{
+    font-size:25px
+
+}
+#wats{
+    font-size:25px
+}
+#popimg{
+    height:350px; 
+    background-color: skyblue; 
+     padding-top: 0px;
+}
+.img{
+    height: 150px;
+    width: 100%;
+     padding-left: 10px;
+}
+
+
+#icon{
+    height:70px;
+}
+
+#imgcont{
+  padding:40px
+}
+.morebtn{
+  width: 10%;
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff;
+  border: none;
+  padding:  10px;
+  border-radius: 6px;
+  background-color:  black;
+  cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+/*            Vision*/
+
+
+
+    .vision-heading{
+        font-family: cursive;
+        padding: 20px;
+    
+}
+.vision-li{
+    font-family: cursives;
+    padding: 10px;
+}
+ 
+
+
+
+</style>
+
+
+</head>
+<body>
+
+           
+                                                                   <!-- navigation bar -->
+
+  <div class="nav">
+
+    <div class="col-lg-2 col-md-2 col-sm-12" id="aak">
+      <div align="center">
+        <h3 class="haak">AAKHAN</h3>
+        <p class="paak">hotels & Resorts</p>
+      </div>
+    </div>
+
+
+
+     <div class="col-lg-2 col-md-2 col-sm-12" id="home">
+      
+    </div>
+
+
+    <div class="col-lg-1 col-md-1 col-sm-12" id="home">
+      <div align="center">
+         <li class="listyle" ><a href="#" class="astyle">Home</a></li>
+      </div>
+    </div>
+
+    <div class="col-lg-1 col-md-1 col-sm-12" id="home">
+      <div align="center">
+         <li class="listyle" ><a href="#" class="astyle">contacts</a></li>
+      </div>
+    </div>
+
+
+
+    <div class="col-lg-1 col-md-1 col-sm-12" id="home">
+      <div align="center">
+         <li class="listyle" ><a href="#" class="astyle">news</a></li>
+      </div>
+    </div>
+
+
+    <div class="col-lg-1 col-md-1 col-sm-12" id="home">
+      <div align="center">
+         <li class="listyle" ><a href="#" class="astyle">offers</a></li>
+      </div>
+    </div>
+
+
+     <div class="col-lg-1 col-md-1 col-sm-12" id="home">
+      <div align="center">
+         <li class="listyle" ><a href="#" class="astyle">stay</a></li>
+      </div>
+    </div>
+
+
+      <div class="col-lg-2 col-md-2 col-sm-12" id="maincheck">
+        <div align="center">
+          <h3 class="check"><b>CHECK AVAILABILITY</b></h3>
+        </div>
+      
+    </div>
+
+
+    
+  </div>
+
+                                                                      <!--slied image -->
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+       <img src="https://images.unsplash.com/photo-1472938714740-c788a1dbfa12?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="darkimg">
+
+
+
+                                                                      <!-- text over img -->
+
+                          <div align="center">
+                              <div class="deluxe"><b>Welcome to Deluxe</b></div>
+                                  <p class="hres">Hotels and resorts</p>
+                              </div>
+                         </div>
+
+    <div class="item">
+      <img src="https://plus.unsplash.com/premium_photo-1680340941711-547df61a7a94?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="darkimg">
+
+
+
+                                                                    <!-- <text over img -->
+      <div align="center">
+           <div class="deluxe"><b>Enjoy a Luxary Experience</b></div>
+                  <p class="hres">join with us</p>
+            </div>
+       </div>
+
+                                                                      <!-- search box -->
+
+            <div align="center">
+                   <div class="srchrow">              
+                       <i class='fas fa-search' id="srchicon"></i>
+                       <input type="text" placeholder="Search " class="srch" />
+                       <button class="buttonsrch">Search</button>
+                  </div>
+              </div>
+                                                                    <!-- search box end -->
+
+    </div>
+
+
+
+  <!-- Left and right controls -->
+ 
+</div>
+
+
+
+  
+
+                                                              <!-- 1st diuvison -->
+
+
+<div class="rowimage" >
+
+  <div class="col-lg-6 col-md-6 col-sm-6" id="textbox">
+
+                                                  <!-- headings -->
+  <p class="luxury"><b>The luxury Hotel</b></p>
+
+
+    <i class='fas fa-star' id="starcolor"></i>
+     <i class='fas fa-star' id="starcolor"></i>
+      <i class='fas fa-star' id="starcolor"></i>
+       <i class='fas fa-star' id="starcolor"></i>
+        <i class='fas fa-star' id="starcolor"></i>
+
+  <h2 class="textpara"><b>The True meaning of <br>luxury and comfort</b></h2>
+
+  <p class="textpara">Luxury and comfort are often used together, and the dictionary defines luxury as "a state of great comfort and extravagant living". Here are some ways to think about luxury and comfort: Comfort is defined as something that brings cheer and is soothing and consoling. Comfortable spaces can promote well-being and should be welcoming, inviting, and soothing. 
+  Luxury can involve both tangible things and intangible experiences. For example, a restful night of sleep, having the freedom to live as you want, and finding your passion in life are all examples of luxury
+  Luxury can also be something that's expensive but not necessary, or something that gives you a lot of pleasure but can't be done often. 
+ 
+</p>
+
+
+    
+  </div>
+
+
+
+
+  <div class="col-lg-6 col-md-6 col-sm-6" id="imgbox">
+
+
+       <img src="https://plus.unsplash.com/premium_photo-1682913629540-3857602b540c?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="image1">
+ 
+
+
+       <img src="https://plus.unsplash.com/premium_photo-1687960116497-0dc41e1808a2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="image2">
+ 
+
+
+
+
+       <img src="https://images.unsplash.com/photo-1721617864119-611e4544ff07?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="image3">
+
+
+
+       <img src="https://images.unsplash.com/photo-1494843805337-17790590e923?q=80&w=1858&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="image4">
+ 
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+                                                                    <!-- 2nd divison  -->
+                                                               
+
+<div class="row">
+
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div align="center">
+      <p class="para">Best prices</p>
+    <h2 class="top"><b>Hotels facilities</b></h2>
+    </div>
+  </div>
+
+
+<div class="col-lg-3 col-md-12 col-sm-12" id="line">
+
+  <i class='fas fa-globe' id="globe"></i>
+  <h4 class="linehead"><b>International cuisines</b></h4>
+  <p class="linepara">International cuisine refers to the diverse cooking styles and dishes from around the world</p> 
+
+</div>
+
+
+<div class="col-lg-3 col-md-12 col-sm-12" id="line">
+
+  <i class='fas fa-bed' id="globe"></i>
+  <h4 class="linehead"><b>room service</b></h4>
+  <p class="linepara"> a hotel service that allows guests to order food and drinks to be delivered to their room.</p> 
+
+</div>
+
+
+<div class="col-lg-3 col-md-12 col-sm-12" id="line">
+
+  <i class='fas fa-parking' id="globe"></i>
+  <h4 class="linehead"><b>violet parking</b></h4>
+  <p class="linepara">Valet parking is a service where a professional parks and retrieves your vehicle for you</p> 
+
+</div>
+
+
+
+
+                                                                                <!-- 2nd row -->
+
+
+
+
+  
+<div class="col-lg-3 col-md-12 col-sm-12" id="line">
+
+  <i class='fas fa-swimming-pool' id="globe"></i>
+  <h4 class="linehead"><b>infinty pool</b></h4>
+  <p class="linepara">International cuisine refers to the diverse cooking styles and dishes from around the world</p> 
+
+</div>
+
+
+<div class="col-lg-3 col-md-12 col-sm-12" id="line">
+
+  <i class='fas fa-wifi' id="globe"></i>
+  <h4 class="linehead"><b>High speed wifi</b></h4>
+  <p class="linepara"> a hotel service that allows guests to order food and drinks to be delivered to their room.</p> 
+
+</div>
+
+
+<div class="col-lg-3 col-md-12 col-sm-12" id="line">
+
+  <i class='fa fa-cutlery' id="globe"></i>
+  <h4 class="linehead"><b>in room dining</b></h4>
+  <p class="linepara">Valet parking is a service where a professional parks and retrieves your vehicle for you</p> 
+
+</div>
+
+
+</div>
+    
+
+
+
+                                                          <!-- 3rd divison -->
+
+
+
+<div class="row" style="background-color: #55ACEE; margin-top: 20px;">
+
+  <div class="col-lg-12 col-md-12 col-sm-12" >
+
+    <p class="propara">The luxury hotels</p>
+
+    <h3 class="prohd"><u>Rooms and Hotels</u></h3>
+
+  </div>
+      <div class="col-lg-4 col-md-4 col-sm-12" id="imgcont">
+
+      <img src="https://images.unsplash.com/photo-1551286923-c82d6a8ae079?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="mainimg">
+      <div align="center">
+      <button type="button" class="btn1 btn-primary"  data-toggle="modal"  data-target="#exampleModal1" data-whatever="item 1" >
+        view
+</button>
+</div>
+    </div>
+
+  
+
+
+ 
+      <div class="col-lg-4 col-md-4 col-sm-12" id="imgcont">
+      <img src="https://images.unsplash.com/photo-1689075181952-1b0572db30bd?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="mainimg" >
+       <button type="button" class="btn1 btn-primary"  data-toggle="modal"  data-target="#exampleModal2" data-whatever="item 2" >
+        view
+</button>
+    </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12"id="imgcont" >
+      <img src="https://images.unsplash.com/photo-1708787101150-844cebbad46d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" id="mainimg">
+   <button type="button" class="btn1 btn-primary"  data-toggle="modal"  data-target="#exampleModal3" data-whatever="item 3" >
+        view
+</button>
+    </div>
+
+<div align="center">
+<button class="morebtn"><a href="more.html">more</a></button>
+</div>
+
+
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+  
+<div class="modal fade" id="exampleModal1" 
+        tabindex="-1" role="dialog" 
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"> 
+        <div class="modal-dialog" role="document"> 
+            <div class="modal-content"> 
+                <div class="modal-header"> 
+                    <h3 class="modal-title" 
+                        id="exampleModalLabel"> 
+                        product detils 
+                    </h3> 
+                    <button type="button" class="close" 
+                        data-dismiss="modal" aria-label="Close"> 
+                        <span aria-hidden="true">×</span> 
+                    </button> 
+                </div> 
+                <div class="modal-body"> 
+                     <div class="row">
+  
+  <div class="col-lg-6 col-md-6 col-sm-6" id="popimg">
+     <img src="https://images.unsplash.com/photo-1551286923-c82d6a8ae079?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img"><br>
+
+     <h5 class="pophd">cottage AAK</h5>
+     <h5 class="pophd">7980564321</h5><br>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<span class="fa fa-star checked" id="star1" ></span>
+<span class="fa fa-star checked" id="star1"></span>
+<span class="fa fa-star checked" id="star1"></span>
+<span class="fa fa-star" id="star2"></span>
+<span class="fa fa-star" id="star2"></span>
+
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-6" id="popimg">
+
+  <h5 class="pophd">descrition</h5>
+  <p>Hotel Altis is located in the city centre, in Lisbon’s main business and shopping
+district. 303 Rooms and suites with
+panoramic terrace, completely soundproof, comfortably decorated and well
+equipped, guarantee a comfortable stay. The Hotel offers 2 Restaurants and 2 bars:
+Grill D.</p>
+
+<hr>
+   
+    <h5>free wifi</h5>
+    <h5>food</h5>
+    <h5>excelent rooms</h5>
+
+    <a href="wtai://wp/mc;18475555555">Click Here To Call  1-847-555-5555</a>
+    <i class="fa fa-whatsapp" id="wats"></i>
+    
+  </div>
+</div>
+
+                </div> 
+                <div class="modal-footer"> 
+                   
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+
+
+
+
+
+  
+    <div class="modal fade" id="exampleModal2" 
+        tabindex="-1" role="dialog" 
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"> 
+        <div class="modal-dialog" role="document"> 
+            <div class="modal-content"> 
+                <div class="modal-header"> 
+                    <h3 class="modal-title" 
+                        id="exampleModalLabel"> 
+                        product detils</h3> 
+                    <button type="button" class="close" 
+                        data-dismiss="modal" aria-label="Close"> 
+                        <span aria-hidden="true">×</span> 
+                    </button> 
+                </div> 
+                <div class="modal-body"> 
+                       <div class="row">
+  
+  <div class="col-lg-6 col-md-6 col-sm-6" id="popimg">
+     <img src="https://images.unsplash.com/photo-1689075181952-1b0572db30bd?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  class="img"><br>
+
+     <h5 class="pophd";>cottage AAK</h5>
+     <h5 class="pophd">7980564321</h5><br>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<span class="fa fa-star checked" id="star1" ></span>
+<span class="fa fa-star checked" id="star1"></span>
+<span class="fa fa-star checked" id="star1"></span>
+<span class="fa fa-star" id="star2"></span>
+<span class="fa fa-star" id="star2"></span>
+
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-6" id="popimg">
+
+  <h5 class="pophd">descrition</h5>
+  <p>Hotel Altis is located in the city centre, in Lisbon’s main business and shopping
+district. 303 Rooms and suites with
+panoramic terrace, completely soundproof, comfortably decorated and well
+equipped, guarantee a comfortable stay. The Hotel offers 2 Restaurants and 2 bars:
+Grill D.</p>
+
+<hr>
+   
+    <h5>free wifi</h5>
+    <h5>food</h5>
+    <h5>excelent rooms</h5>
+
+    <a href="wtai://wp/mc;18475555555">Click Here To Call  1-847-555-5555</a>
+    <i class="fa fa-whatsapp" id="wats"></i>
+    
+  </div>
+</div>
+
+                </div> 
+                <div class="modal-footer"> 
+                   
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+  
+    <div class="modal fade" id="exampleModal3" 
+        tabindex="-1" role="dialog" 
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"> 
+        <div class="modal-dialog" role="document"> 
+            <div class="modal-content"> 
+                <div class="modal-header"> 
+                    <h3 class="modal-title" 
+                        id="exampleModalLabel"> 
+                        product detils 
+                    </h3> 
+                    <button type="button" class="close" 
+                        data-dismiss="modal" 
+                        aria-label="Close"> 
+                        <span aria-hidden="true">×</span> 
+                    </button> 
+                </div> 
+                <div class="modal-body"> 
+                      <div class="row">
+  
+  <div class="col-lg-6 col-md-6 col-sm-6" id="popimg">
+     <img src="https://images.unsplash.com/photo-1708787101150-844cebbad46d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img"><br>
+
+     <h5 class="pophd">cottage AAK</h5>
+     <h5 class="pophd">7980564321</h5><br>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<span class="fa fa-star checked" id="star1" ></span>
+<span class="fa fa-star checked" id="star1"></span>
+<span class="fa fa-star checked" id="star1"></span>
+<span class="fa fa-star" id="star2"></span>
+<span class="fa fa-star"id="star2"></span>
+
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-6" id="popimg">
+
+  <h5 class="pophd">descrition</h5>
+  <p>Hotel Altis is located in the city centre, in Lisbon’s main business and shopping
+district. 303 Rooms and suites with
+panoramic terrace, completely soundproof, comfortably decorated and well
+equipped, guarantee a comfortable stay. The Hotel offers 2 Restaurants and 2 bars:
+Grill D.</p>
+
+<hr>
+   
+    <h5>free wifi</h5>
+    <h5>food</h5>
+    <h5>excelent rooms</h5>
+
+    <a href="wtai://wp/mc;18475555555">Click Here To Call  1-847-555-5555</a>
+    <i class="fa fa-whatsapp" id="wats"></i>
+    
+  </div>
+</div>
+
+                </div> 
+                <div class="modal-footer"> 
+                   
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+
+
+
+
+
+
+
+
+
+                                                                                <!-- vision -->
+<div class="vision">
+  
+                <h2 class="vision-heading">The AAK  Groups - Vision</h2>
+         <ul>
+                <li class="vision-li">We see an organisation which aims at leadership in the hospitality industry by understanding its guests; and designing and delivering products and services which enable it to exceed their expectations. We will always demonstrate care for our customers through anticipation of their needs, attention to detail, distinctive excellence, warmth and concern.</li>
+
+                <li class="vision-li">We see a lean and responsive organisation where decision making is encouraged at each level and which accepts change. An organisation that is committed and responsive to its guests and other stakeholders.</li>
+
+                <li class="vision-li">We see a multi-skilled workforce; which consists of team players who have pride of ownership in translating the organisation's vision into reality.</li>
+
+                 <li class="vision-li">We see an organisation where people are nurtured through continuous learning and skill improvement; and are respected, heard and encouraged to do their best. The Oberoi Group is recognised as best practice for training and developing its people.</li>
+
+                 <li class="vision-li">We see a diverse workforce which has been exposed to different cultures, problems and situations and can use its experiences to enrich the local employees whether in India or overseas.</li>
+
+
+                 <li class="vision-li">We see the world dotted with hotels of The Oberoi Group, in strategic commercial and resort locations.</li>
+
+
+                  <li class="vision-li">Conduct which demonstrates that people are our key asset, through respect for every employee, and leading from the front regarding performance achievement as well as individual development.</li>
+
+
+                   <li class="vision-li">Conduct which at all times safeguards the safety, security, health and environment of guests, employees and the assets of the Company.</li>
+         </ul>
+</div>
+
+
+
+
+</body>
+</html>	

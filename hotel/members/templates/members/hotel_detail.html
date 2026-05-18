@@ -1,0 +1,1010 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ hotel.name }} | AAKHAN Hotels</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Fontawesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f3f7fc;
+    color:#0b101d;
+    overflow-x:hidden;
+}
+
+/* ================= TOP BAR ================= */
+
+.topbar{
+    padding:22px 0;
+}
+
+.back-btn{
+    text-decoration:none;
+    color:#0b101d;
+    font-size:14px;
+    font-weight:600;
+}
+
+.back-btn i{
+    margin-right:6px;
+    color:#55ACEE;
+}
+
+/* ================= MAIN ================= */
+
+.hotel-wrapper{
+    padding-bottom:60px;
+}
+
+.hotel-heading{
+    font-size:44px;
+    font-weight:700;
+    color:#0b101d;
+    margin-bottom:10px;
+}
+
+.hotel-location{
+    font-size:15px;
+    color:#6d7789;
+    margin-bottom:28px;
+}
+
+.hotel-location i{
+    color:#55ACEE;
+    margin-right:6px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery-wrapper{
+    position:relative;
+}
+
+.main-image{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:26px;
+}
+
+.side-img{
+    width:100%;
+    height:242px;
+    object-fit:cover;
+    border-radius:22px;
+}
+
+.image-badge{
+    position:absolute;
+    bottom:18px;
+    left:18px;
+    background:rgba(0,0,0,0.75);
+    color:white;
+    padding:12px 18px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:500;
+    backdrop-filter:blur(10px);
+}
+
+.image-badge i{
+    margin-right:7px;
+}
+
+/* ================= SECTION BOX ================= */
+
+.section-box{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    margin-top:30px;
+    border:1px solid #e7edf7;
+    box-shadow:0 5px 25px rgba(0,0,0,0.04);
+}
+
+.section-title{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.about-text{
+    color:#555;
+    line-height:1.9;
+    font-size:15px;
+}
+
+/* ================= AMENITIES ================= */
+
+.amenities{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-top:25px;
+}
+
+.amenity-box{
+    background:#f5f9ff;
+    border:1px solid #e1ebfb;
+    border-radius:16px;
+    padding:16px 22px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:190px;
+}
+
+.amenity-box i{
+    color:#55ACEE;
+    font-size:18px;
+}
+
+.amenity-box span{
+    font-size:14px;
+    font-weight:500;
+}
+
+/* ================= BOOKING CARD ================= */
+
+.booking-card{
+    background:white;
+    border-radius:28px;
+    padding:30px;
+    border:1px solid #e5edf7;
+    box-shadow:0 10px 40px rgba(13,38,76,0.08);
+    position:sticky;
+    top:30px;
+}
+
+.room-title{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.room-sub{
+    color:#777;
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.feature-list{
+    margin-bottom:22px;
+}
+
+.feature-item{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:15px;
+    font-size:14px;
+    color:#0b101d;
+}
+
+.feature-item i{
+    color:#55ACEE;
+    margin-top:3px;
+}
+
+.old-price{
+    color:#999;
+    text-decoration:line-through;
+    font-size:16px;
+}
+
+.new-price{
+    font-size:48px;
+    font-weight:700;
+    color:#0b101d;
+    line-height:1;
+}
+
+.tax-text{
+    color:#777;
+    font-size:13px;
+    margin-top:8px;
+    margin-bottom:24px;
+}
+
+.book-btn{
+    width:100%;
+    border:none;
+    background:linear-gradient(135deg,#55ACEE,#2575fc);
+    color:white;
+    height:58px;
+    border-radius:16px;
+    font-size:17px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.book-btn:hover{
+    transform:translateY(-2px);
+}
+
+.confirm-popup{
+    background:black;
+    color:white;
+    margin-top:16px;
+    border-radius:14px;
+    padding:15px;
+    text-align:center;
+    font-size:14px;
+    display:none;
+}
+
+.confirm-popup i{
+    margin-right:8px;
+}
+
+/* ================= COMMENTS ================= */
+
+.review-input{
+    border-radius:16px !important;
+    padding:15px !important;
+    border:1px solid #dbe5f2 !important;
+    resize:none;
+}
+
+.review-input:focus{
+    border-color:#55ACEE !important;
+    box-shadow:none !important;
+}
+
+.comment-btn{
+    background:#55ACEE;
+    border:none;
+    color:black;
+    padding:12px 24px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.comment-btn:hover{
+    background:#0b101d;
+    color:white;
+}
+
+.comment-card{
+    background:#f8fbff;
+    border:1px solid #e6edf8;
+    border-radius:18px;
+    padding:20px;
+    margin-top:20px;
+}
+
+.comment-user{
+    font-size:15px;
+    font-weight:600;
+}
+
+.comment-time{
+    color:#999;
+    font-size:12px;
+}
+
+.comment-text{
+    margin-top:12px;
+    line-height:1.8;
+    color:#555;
+    font-size:14px;
+}
+
+.reply-btn{
+    background:#0b101d;
+    border:none;
+    color:white;
+    padding:8px 18px;
+    border-radius:10px;
+    font-size:13px;
+    margin-top:12px;
+}
+
+.reply-btn:hover{
+    background:#55ACEE;
+    color:black;
+}
+
+.reply-box{
+    margin-left:40px;
+    margin-top:18px;
+    padding-left:18px;
+    border-left:3px solid #55ACEE;
+}
+
+.reply-form{
+    margin-top:16px;
+    display:none;
+}
+
+.reply-form textarea{
+    border-radius:14px !important;
+    box-shadow:none !important;
+}
+
+/* ================= MODAL ================= */
+
+.modal-content{
+    border:none;
+    border-radius:26px;
+    overflow:hidden;
+}
+
+.modal-header{
+    background:#0b101d;
+    color:white;
+    border:none;
+    padding:20px 24px;
+}
+
+.modal-body{
+    padding:28px;
+}
+
+.modal-body label{
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:7px;
+}
+
+.modal-body .form-control{
+    height:52px;
+    border-radius:14px;
+    border:1px solid #dde5f1;
+    font-size:14px;
+}
+
+.modal-body .form-control:focus{
+    border-color:#55ACEE;
+    box-shadow:none;
+}
+
+.confirm-btn{
+    width:100%;
+    background:linear-gradient(135deg,#55ACEE,#2575fc);
+    border:none;
+    color:white;
+    height:55px;
+    border-radius:14px;
+    font-weight:600;
+    margin-top:8px;
+}
+
+/* ================= ALERT ================= */
+
+.custom-alert{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:9999;
+    min-width:320px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+.main-image{
+    height:330px;
+}
+
+.side-img{
+    height:160px;
+}
+
+.booking-card{
+    position:relative;
+    top:0;
+    margin-top:25px;
+}
+
+.hotel-heading{
+    font-size:34px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hotel-heading{
+    font-size:28px;
+}
+
+.main-image{
+    height:260px;
+}
+
+.side-img{
+    height:130px;
+}
+
+.section-box{
+    padding:20px;
+}
+
+.amenity-box{
+    width:100%;
+}
+
+.reply-box{
+    margin-left:15px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- ================= ALERT ================= -->
+
+{% if messages %}
+<div class="custom-alert">
+
+{% for message in messages %}
+
+<div class="alert alert-success alert-dismissible fade show shadow-sm">
+
+<i class="fa fa-circle-check me-2"></i>
+{{ message }}
+
+<button type="button"
+class="btn-close"
+data-bs-dismiss="alert"></button>
+
+</div>
+
+{% endfor %}
+
+</div>
+{% endif %}
+
+<div class="container hotel-wrapper">
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="topbar">
+
+<a href="{% url 'index' %}" class="back-btn">
+<i class="fa fa-arrow-left"></i>
+Back to Hotels
+</a>
+
+</div>
+
+<!-- ================= TITLE ================= -->
+
+<h1 class="hotel-heading">
+{{ hotel.name }}
+</h1>
+
+<p class="hotel-location">
+<i class="fa fa-location-dot"></i>
+{{ hotel.city }}, {{ hotel.country.country }}
+</p>
+
+<div class="row g-4">
+
+<!-- ================= LEFT SIDE ================= -->
+
+<div class="col-lg-8">
+
+<!-- ================= GALLERY ================= -->
+
+<div class="gallery-wrapper">
+
+<div class="row g-3">
+
+<div class="col-md-8">
+
+{% if hotel.image %}
+<img src="{{ hotel.image.url }}"
+class="main-image">
+{% endif %}
+
+</div>
+
+<div class="col-md-4">
+
+<div class="d-flex flex-column gap-3">
+
+{% if hotel.image %}
+<img src="{{ hotel.image.url }}"
+class="side-img">
+{% endif %}
+
+{% if hotel.image %}
+<img src="{{ hotel.image.url }}"
+class="side-img">
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+<div class="image-badge">
+<i class="fa fa-image"></i>
+275 Property & Guest Photos
+</div>
+
+</div>
+
+<!-- ================= ABOUT ================= -->
+
+<div class="section-box">
+
+<h3 class="section-title">
+About Property
+</h3>
+
+<p class="about-text">
+
+Enjoy premium comfort and luxury hospitality at
+{{ hotel.name }}. Experience modern interiors,
+beautiful rooms, peaceful atmosphere, delicious
+food and unforgettable stay experience with
+AAKHAN Hotels.
+
+</p>
+
+<!-- ================= AMENITIES ================= -->
+
+<h4 class="section-title mt-4">
+Amenities
+</h4>
+
+<div class="amenities">
+
+<div class="amenity-box">
+<i class="fa fa-wifi"></i>
+<span>Free WiFi</span>
+</div>
+
+<div class="amenity-box">
+<i class="fa fa-utensils"></i>
+<span>Restaurant</span>
+</div>
+
+<div class="amenity-box">
+<i class="fa fa-car"></i>
+<span>Free Parking</span>
+</div>
+
+<div class="amenity-box">
+<i class="fa fa-swimming-pool"></i>
+<span>Swimming Pool</span>
+</div>
+
+<div class="amenity-box">
+<i class="fa fa-dumbbell"></i>
+<span>Gym Access</span>
+</div>
+
+<div class="amenity-box">
+<i class="fa fa-spa"></i>
+<span>Spa & Wellness</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= COMMENTS ================= -->
+
+<div class="section-box">
+
+<h3 class="section-title">
+Guest Reviews
+</h3>
+
+{% if user.is_authenticated %}
+
+<form action="{% url 'add_comment' hotel.id %}"
+method="POST">
+
+{% csrf_token %}
+
+<textarea
+name="content"
+rows="4"
+class="form-control review-input mb-3"
+placeholder="Write your review..."
+required></textarea>
+
+<button type="submit"
+class="comment-btn">
+
+Post Review
+
+</button>
+
+</form>
+
+<hr class="my-4">
+
+{% else %}
+
+<div class="alert alert-warning">
+Please login to write reviews.
+</div>
+
+{% endif %}
+
+<!-- ================= COMMENTS LOOP ================= -->
+
+{% for comment in comments %}
+
+<div class="comment-card">
+
+<div class="d-flex justify-content-between align-items-center">
+
+<div class="comment-user">
+<i class="fa fa-user-circle me-1"></i>
+{{ comment.user.first_name }}
+</div>
+
+<div class="comment-time">
+{{ comment.created_at }}
+</div>
+
+</div>
+
+<p class="comment-text">
+{{ comment.content }}
+</p>
+
+{% if user.is_authenticated %}
+
+<button
+class="reply-btn"
+onclick="toggleReply('{{ comment.id }}')">
+
+Reply
+
+</button>
+
+<div
+class="reply-form"
+id="replyForm{{ comment.id }}">
+
+<form action="{% url 'add_comment' hotel.id %}"
+method="POST">
+
+{% csrf_token %}
+
+<input type="hidden"
+name="parent_id"
+value="{{ comment.id }}">
+
+<textarea
+name="content"
+rows="2"
+class="form-control mb-2"
+placeholder="Write your reply..."
+required></textarea>
+
+<button type="submit"
+class="reply-btn">
+
+Post Reply
+
+</button>
+
+</form>
+
+</div>
+
+{% endif %}
+
+<!-- ================= REPLIES ================= -->
+
+{% for reply in comment.replies.all %}
+
+<div class="reply-box">
+
+<div class="d-flex justify-content-between align-items-center">
+
+<div class="comment-user">
+<i class="fa fa-reply me-1"></i>
+{{ reply.user.first_name }}
+</div>
+
+<div class="comment-time">
+{{ reply.created_at }}
+</div>
+
+</div>
+
+<p class="comment-text">
+{{ reply.content }}
+</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% empty %}
+
+<p>No reviews available.</p>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+<!-- ================= RIGHT SIDE ================= -->
+
+<div class="col-lg-4">
+
+<div class="booking-card">
+
+<h2 class="room-title">
+Emerald Premium Room
+</h2>
+
+<p class="room-sub">
+Fits 2 Adults
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+<i class="fa fa-tag"></i>
+<span>Guaranteed 15% Discount on services</span>
+</div>
+
+<div class="feature-item">
+<i class="fa fa-mug-hot"></i>
+<span>Complimentary welcome drink</span>
+</div>
+
+<div class="feature-item">
+<i class="fa fa-check-circle"></i>
+<span>Free cancellation available</span>
+</div>
+
+</div>
+
+<div class="old-price">
+₹{{ hotel.price|add:"2500" }}
+</div>
+
+<div class="new-price">
+₹{{ hotel.price }}
+</div>
+
+<div class="tax-text">
++ taxes & fees included
+</div>
+
+{% if user.is_authenticated %}
+
+<button
+class="book-btn"
+data-bs-toggle="modal"
+data-bs-target="#bookingModal">
+
+BOOK THIS NOW
+
+</button>
+
+<div class="confirm-popup"
+id="confirmPopup">
+
+<i class="fa fa-circle-check"></i>
+Booking Confirmed
+
+</div>
+
+{% else %}
+
+<a href="/?modal=login"
+class="book-btn d-flex align-items-center justify-content-center text-decoration-none">
+
+Login to Book
+
+</a>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= BOOKING MODAL ================= -->
+
+<div class="modal fade"
+id="bookingModal"
+tabindex="-1">
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5 class="modal-title">
+Book {{ hotel.name }}
+</h5>
+
+<button type="button"
+class="btn-close btn-close-white"
+data-bs-dismiss="modal"></button>
+
+</div>
+
+<div class="modal-body">
+
+<form action="{% url 'book_hotel' %}"
+method="POST"
+onsubmit="showBookingPopup()">
+
+{% csrf_token %}
+
+<input type="hidden"
+name="hotel_id"
+value="{{ hotel.id }}">
+
+<div class="mb-3">
+
+<label>Full Name</label>
+
+<input type="text"
+name="name"
+class="form-control"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label>Phone Number</label>
+
+<input type="text"
+name="phone"
+class="form-control"
+required>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>Check In</label>
+
+<input type="date"
+name="checkin"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Check Out</label>
+
+<input type="date"
+name="checkout"
+class="form-control"
+required>
+
+</div>
+
+</div>
+
+<button type="submit"
+class="confirm-btn">
+
+Confirm Booking
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= JS ================= -->
+<script>
+
+/* ================= REPLY TOGGLE ================= */
+
+function toggleReply(id){
+
+const form = document.getElementById("replyForm" + id);
+
+if(form.style.display === "block"){
+form.style.display = "none";
+}
+else{
+form.style.display = "block";
+}
+
+}
+
+/* ================= BOOKING POPUP ================= */
+
+function showBookingPopup(){
+
+const popup = document.getElementById("confirmPopup");
+
+/* prevent multiple popup messages */
+
+popup.style.display = "none";
+
+clearTimeout(window.popupTimer);
+clearTimeout(window.popupHideTimer);
+
+window.popupTimer = setTimeout(() => {
+
+popup.style.display = "block";
+
+window.popupHideTimer = setTimeout(() => {
+
+popup.style.display = "none";
+
+},3000);
+
+},400);
+
+}
+
+/* ================= AUTO HIDE ALERT ================= */
+
+setTimeout(() => {
+
+let alerts = document.querySelectorAll(".alert");
+
+alerts.forEach(alert => {
+
+let bsAlert = new bootstrap.Alert(alert);
+bsAlert.close();
+
+});
+
+},3000);
+
+</script>
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

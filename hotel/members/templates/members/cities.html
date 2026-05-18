@@ -1,0 +1,52 @@
+{% extends 'members/base.html' %}
+{% load static %}
+
+{% block title %} Explore Cities | AAK {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'members/cities.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block main %}
+<div class="container custom-container">
+
+    <h2 class="section-title text-center mb-5">Explore Beautiful Cities Around the World</h2>
+
+    <div class="row g-4">
+        {% for country_item in countries %}
+        <div class="col-12">
+            <div class="card city-card shadow-sm mb-4">
+                <div class="row g-0">
+                    <!-- City Image -->
+                    <div class="col-md-4">
+                        {% if country_item.image %}
+                        <img src="{{ country_item.image.url }}" class="img-fluid h-100 w-100" alt="{{ country_item.city }}">
+                        {% else %}
+                        <img src="{% static 'members/default_city.jpg' %}" class="img-fluid h-100 w-100" alt="Default City">
+                        {% endif %}
+                    </div>
+
+                    <!-- City Info -->
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ country_item.city }}, {{ country_item.country }}</h3>
+                            <p class="card-text">{{ country_item.description|default:"A vibrant city with rich culture and attractions." }}</p>
+
+                            <div class="info-row"><i class="fa fa-star text-warning"></i> Rating: {{ country_item.rating }}</div>
+                            <div class="info-row"><i class="fa fa-users text-primary"></i> Population: {{ country_item.population|default:"N/A" }}</div>
+                            <div class="info-row"><i class="fa fa-hotel text-success"></i> Hotels: {{ country_item.hotels|default:"N/A" }}</div>
+                            <div class="info-row"><i class="fa fa-map-location-dot text-danger"></i> Famous Places: {{ country_item.famous_places|default:"N/A" }}</div>
+                            
+
+                            <a href="{% url 'country_detail' country_item.id %}" class="btn btn-primary mt-3">Explore City</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

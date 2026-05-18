@@ -1,0 +1,641 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>AAKHAN Hotels</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f4f6fb;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  background:#0b101d;
+  color:white;
+  padding:25px 20px;
+  text-align:center;
+  border-bottom-left-radius:30px;
+  border-bottom-right-radius:30px;
+  position:relative;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+.header h2{
+  font-size:24px;
+  font-weight:600;
+  margin-bottom:5px;
+}
+
+.header h4{
+  font-size:14px;
+  color:#ccc;
+  font-weight:400;
+}
+
+/* ================= HOME BUTTON ================= */
+
+.btn-home{
+  position:absolute;
+  left:20px;
+  top:20px;
+  background:#55ACEE;
+  color:white;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  font-size:14px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn-home:hover{
+  background:white;
+  color:#0b101d;
+  transform:translateY(-2px);
+}
+
+/* ================= SEARCH BAR ================= */
+
+.booking-search{
+  background:white;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.10);
+  max-width:1100px;
+  margin:25px auto 0;
+  border:1px solid #edf1f7;
+}
+
+.form-label{
+  font-size:12px;
+  color:#666;
+  margin-bottom:6px;
+  font-weight:500;
+}
+
+.bk-input{
+  width:100%;
+  height:48px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:0 14px;
+  font-size:14px;
+  background:#f9fbff;
+  outline:none;
+  transition:0.3s;
+}
+
+.bk-input:focus{
+  border-color:#55ACEE;
+  box-shadow:0 0 8px rgba(85,172,238,0.25);
+  background:white;
+}
+
+/* ================= SEARCH BUTTON ================= */
+
+.bk-search-btn{
+  width:100%;
+  height:48px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(45deg,#55ACEE,#007bff);
+  color:white;
+  font-weight:600;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.bk-search-btn:hover{
+  background:#0b101d;
+  transform:translateY(-2px);
+}
+
+/* ================= COUNTRY DETAIL ================= */
+
+.country-detail{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  border:1px solid #edf1f7;
+  margin-top:30px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.country-title{
+  font-size:26px;
+  font-weight:700;
+  color:#0b101d;
+  margin-bottom:8px;
+}
+
+.country-text{
+  font-size:14px;
+  color:#666;
+  margin:0;
+  line-height:1.7;
+}
+
+/* ================= HOTEL CARD ================= */
+
+.hotel-card{
+  display:flex;
+  flex-direction:column;
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 18px rgba(0,0,0,0.08);
+  transition:0.3s;
+  height:100%;
+  border:1px solid #edf1f7;
+}
+
+.hotel-card:hover{
+  transform:translateY(-5px);
+}
+
+.hotel-image-box{
+  position:relative;
+  overflow:hidden;
+}
+
+.hotel-image-box img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.hotel-card:hover img{
+  transform:scale(1.05);
+}
+
+/* ================= CARD BODY ================= */
+
+.card-body{
+  padding:18px;
+}
+
+/* ================= TOP BADGES ================= */
+
+.badge-custom{
+  background:#eaf6ff;
+  color:#007bff;
+  font-size:11px;
+  padding:5px 10px;
+  border-radius:20px;
+  font-weight:600;
+}
+
+.rating{
+  background:#28a745;
+  color:white;
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:500;
+}
+
+/* ================= TITLE ================= */
+
+.hotel-title{
+  font-size:19px;
+  font-weight:600;
+  color:#0b101d;
+  margin-bottom:8px;
+}
+
+/* ================= LOCATION ================= */
+
+.location{
+  font-size:13px;
+  color:#777;
+  margin-bottom:14px;
+}
+
+.location i{
+  color:#55ACEE;
+  margin-right:4px;
+}
+
+/* ================= FEATURES ================= */
+
+.hotel-features{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.hotel-features span{
+  font-size:12px;
+  color:#555;
+}
+
+.hotel-features i{
+  color:#55ACEE;
+  margin-right:4px;
+}
+
+/* ================= PRICE ================= */
+
+.price{
+  font-size:22px;
+  font-weight:700;
+  color:#0b101d;
+  line-height:1;
+}
+
+.night-text{
+  font-size:11px;
+  color:#777;
+}
+
+/* ================= VIEW BUTTON ================= */
+
+.btn-view{
+  background:#55ACEE;
+  color:white;
+  text-decoration:none;
+  padding:9px 16px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.btn-view:hover{
+  background:#0b101d;
+  color:white;
+}
+
+/* ================= NO HOTEL ================= */
+
+.no-hotel{
+  background:white;
+  padding:60px 20px;
+  border-radius:18px;
+  border:1px solid #edf1f7;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.no-hotel h4{
+  color:#0b101d;
+  font-weight:600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .header h2{
+    font-size:20px;
+  }
+
+  .header h4{
+    font-size:12px;
+  }
+
+  .country-title{
+    font-size:22px;
+  }
+
+  .hotel-image-box img{
+    height:210px;
+  }
+
+  .booking-search{
+    padding:16px;
+  }
+
+  .btn-home{
+    width:36px;
+    height:36px;
+    font-size:13px;
+  }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<div class="header">
+
+  <a href="{% url 'index' %}" class="btn-home">
+    <i class="fas fa-home"></i>
+  </a>
+
+  <h2>
+
+    {% if hotels %}
+      {{ hotels.0.country }} Hotels
+    {% else %}
+      Hotels
+    {% endif %}
+
+  </h2>
+
+  <h4>
+    Discover premium stays and luxury hotels
+  </h4>
+
+</div>
+
+<!-- ================= SEARCH BAR ================= -->
+
+<div class="container">
+
+<form action="{% url 'checkbook' %}"
+method="POST"
+class="booking-search">
+
+{% csrf_token %}
+
+<div class="row g-3">
+
+  <div class="col-lg-3 col-md-6 col-12">
+
+    <label class="form-label">
+      Where
+    </label>
+
+    <input type="text"
+    name="destination"
+    class="bk-input"
+    placeholder="City / Hotel">
+
+  </div>
+
+  <div class="col-lg-2 col-md-3 col-6">
+
+    <label class="form-label">
+      Check-in
+    </label>
+
+    <input type="date"
+    name="checkin"
+    class="bk-input">
+
+  </div>
+
+  <div class="col-lg-2 col-md-3 col-6">
+
+    <label class="form-label">
+      Check-out
+    </label>
+
+    <input type="date"
+    name="checkout"
+    class="bk-input">
+
+  </div>
+
+  <div class="col-lg-2 col-md-4 col-6">
+
+    <label class="form-label">
+      Guests
+    </label>
+
+    <select name="guests" class="bk-input">
+
+      <option>1 Guest</option>
+      <option>2 Guests</option>
+      <option>3 Guests</option>
+      <option>4 Guests</option>
+
+    </select>
+
+  </div>
+
+  <div class="col-lg-3 col-md-4 col-6">
+
+    <label class="form-label">
+      Search
+    </label>
+
+    <button type="submit"
+    class="bk-search-btn">
+
+      <i class="fa fa-search me-1"></i>
+      Search Hotels
+
+    </button>
+
+  </div>
+
+</div>
+
+</form>
+
+</div>
+
+<!-- ================= HOTEL LIST ================= -->
+
+<div class="container mt-4 mb-5">
+
+  <!-- COUNTRY DETAIL -->
+
+  <div class="country-detail">
+
+    <h3 class="country-title">
+
+      Hotels in
+
+      {% if hotels %}
+        {{ hotels.0.country }}
+      {% else %}
+        Selected Country
+      {% endif %}
+
+    </h3>
+
+    <p class="country-text">
+
+      Find luxury hotels, premium rooms,
+      comfortable stays and best hospitality services.
+
+    </p>
+
+  </div>
+
+  <!-- HOTELS -->
+
+  <div class="row g-4 mt-1">
+
+    {% if hotels %}
+
+      {% for hotel in hotels %}
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="hotel-card">
+
+          <!-- IMAGE -->
+
+          <div class="hotel-image-box">
+
+            {% if hotel.image %}
+
+              <img src="{{ hotel.image.url }}"
+              alt="{{ hotel.name }}">
+
+            {% else %}
+
+              <img src="https://via.placeholder.com/400x250"
+              alt="No image">
+
+            {% endif %}
+
+          </div>
+
+          <!-- BODY -->
+
+          <div class="card-body">
+
+            <!-- TOP -->
+
+            <div class="d-flex justify-content-between align-items-center mb-2">
+
+              <span class="badge-custom">
+                Free Breakfast
+              </span>
+
+              <span class="rating">
+                {{ hotel.rating|default:"4.5" }} ★
+              </span>
+
+            </div>
+
+            <!-- TITLE -->
+
+            <h5 class="hotel-title">
+              {{ hotel.name }}
+            </h5>
+
+            <!-- LOCATION -->
+
+            <p class="location">
+
+              <i class="fa-solid fa-location-dot"></i>
+
+              {{ hotel.city }},
+              {{ hotel.country }}
+
+            </p>
+
+            <!-- FEATURES -->
+
+            <div class="hotel-features">
+
+              <span>
+                <i class="fa fa-wifi"></i>
+                Wifi
+              </span>
+
+              <span>
+                <i class="fa fa-car"></i>
+                Parking
+              </span>
+
+              <span>
+                <i class="fa fa-utensils"></i>
+                Food
+              </span>
+
+            </div>
+
+            <!-- PRICE -->
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+
+              <div>
+
+                <div class="price">
+                  ₹ {{ hotel.price }}
+                </div>
+
+                <small class="night-text">
+                  per night
+                </small>
+
+              </div>
+
+              <a href="{% url 'hotel_detail' hotel.id %}"
+              class="btn-view">
+
+                View Hotel
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {% endfor %}
+
+    {% else %}
+
+      <div class="col-12">
+
+        <div class="no-hotel text-center">
+
+          <h4 class="mb-2">
+            No Hotels Available
+          </h4>
+
+          <p class="text-muted">
+            Hotels not found for this country.
+          </p>
+
+        </div>
+
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</div>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
