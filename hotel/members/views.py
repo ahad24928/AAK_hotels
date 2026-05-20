@@ -120,7 +120,7 @@ def hotel_detail(request, id):
 
 
 # booking details in navbar
-@login_required(login_url='/members/index?modal=login')
+@login_required(login_url='/members/?modal=login')
 def mybook(request):
     bookings = Booking.objects.filter(user=request.user).order_by('-id')
     return render(request, 'members/mybook.html', {'bookings': bookings})
