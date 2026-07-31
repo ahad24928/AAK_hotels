@@ -982,44 +982,44 @@
 
 
 
-// function sendMessage() {
-//   let input = document.getElementById("userInput");
-//   let message = input.value.trim();
-//   if(message === "") return;
+function sendMessage() {
+  let input = document.getElementById("userInput");
+  let message = input.value.trim();
+  if(message === "") return;
 
-//   let chatBody = document.getElementById("chatBody");
+  let chatBody = document.getElementById("chatBody");
 
-//   // User message
-//   let userDiv = document.createElement("div");
-//   userDiv.className = "user-msg";
-//   userDiv.innerText = message;
-//   chatBody.appendChild(userDiv);
+  // User message
+  let userDiv = document.createElement("div");
+  userDiv.className = "user-msg";
+  userDiv.innerText = message;
+  chatBody.appendChild(userDiv);
 
-//   // Bot reply
-//   let botDiv = document.createElement("div");
-//   botDiv.className = "bot-msg";
+  // Bot reply
+  let botDiv = document.createElement("div");
+  botDiv.className = "bot-msg";
 
-//   // Simple AI logic
-//   if(message.toLowerCase().includes("book")) {
-//     botDiv.innerText = "To book a hotel, search destination and click View.";
-//   }
-//   else if(message.toLowerCase().includes("cancel")) {
-//     botDiv.innerText = "Go to My Bookings and click cancel.";
-//   }
-//   else if(message.toLowerCase().includes("contact")) {
-//     botDiv.innerText = "You can contact us from Contact page.";
-//   }
-//   else {
-//     botDiv.innerText = "Sorry, I didn’t understand. Please try again.";
-//   }
+  // Simple AI logic
+  if(message.toLowerCase().includes("book")) {
+    botDiv.innerText = "To book a hotel, search destination and click View.";
+  }
+  else if(message.toLowerCase().includes("cancel")) {
+    botDiv.innerText = "Go to My Bookings and click cancel.";
+  }
+  else if(message.toLowerCase().includes("contact")) {
+    botDiv.innerText = "You can contact us from Contact page.";
+  }
+  else {
+    botDiv.innerText = "Sorry, I didn’t understand. Please try again.";
+  }
 
-//   setTimeout(() => {
-//     chatBody.appendChild(botDiv);
-//     chatBody.scrollTop = chatBody.scrollHeight;
-//   }, 500);
+  setTimeout(() => {
+    chatBody.appendChild(botDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 500);
 
-//   input.value = "";
-// }
+  input.value = "";
+}
 
 </script>
 
